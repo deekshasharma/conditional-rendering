@@ -4,24 +4,23 @@ import Notify from "./notify.svg";
 
 
 const notifications = ['Credit Card expiring in 2 days', 'Your balance is below $100', 'Phone bill payment due today'];
-// const notifications = [];
 const greeting = 'Hey Sam!';
 
 export default function App() {
   return <div className="app">
-    <Notification data={notifications} greeting={greeting}/>
+    <Notification notifications={notifications} greeting={greeting}/>
   </div>
 }
 
 
 const Notification = (props) => {
-    const messages = props.data;
+    const notifications = props.notifications;
     const greet = props.greeting;
     return (
         <div>
             <h1>{greet}</h1>
-            {messages.length > 0 &&  <NewMessages messages={messages}/>}
-            {messages.length === 0 && <NoNewMessages/>}
+            {notifications.length > 0 &&  <NewMessages messages={notifications}/>}
+            {notifications.length === 0 && <NoNewMessages/>}
         </div>
     );
 };
